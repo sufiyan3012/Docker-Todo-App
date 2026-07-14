@@ -2,7 +2,7 @@ Application - Initial Version
 
 This screenshot shows the first version of the Docker Todo Application developed using Flask and MySQL. It demonstrates the basic functionality for displaying and managing todo tasks before the user interface was enhanced.
 
-![Application Initial Version](images/Screenshot%20(121).png)
+WhatsApp Image 2026-07-14 at 8.52.31 PM.jpeg
 
 ---
 
