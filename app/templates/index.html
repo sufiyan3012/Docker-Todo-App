@@ -80,13 +80,13 @@
 
                     <td>{{ task.task }}</td>
 
-                    <td>{{ task.created_at.strftime('%Y-%m-%d') if task.created_at else '' }}</td>
+                    <td>{{ task.created_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
 
                     <td>{{ task.due_date }}</td>
 
                     <td>
 
-                        {% if task.completed %}
+                        {% if task.status == 'Completed' %}
 
                         <span class="badge bg-success">
                             Completed

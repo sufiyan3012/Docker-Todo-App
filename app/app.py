@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import mysql.connector
 from datetime import datetime
+from zoneinfo import ZoneInfo
 import time
 
 app = Flask(__name__)
@@ -31,11 +32,11 @@ def index():
         task = request.form["task"]
         due_date = request.form["due_date"]
 
-        created_date = datetime.now().strftime("%Y-%m-%d")
+        created_date = datetime.now(ZoneInfo("Asia/Kolkata"))
 
         sql = """
         INSERT INTO tasks
-        (task, created_at, due_date)
+        (task, created_date, due_date)
         VALUES (%s, %s, %s)
         """
 
@@ -60,7 +61,7 @@ def index():
 def complete(id):
 
     cursor.execute(
-        "UPDATE tasks SET completed=1 WHERE id=%s",
+        "UPDATE tasks SET status='Completed' WHERE id=%s",
         (id,)
     )
 
@@ -84,3 +85,4 @@ def delete(id):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
